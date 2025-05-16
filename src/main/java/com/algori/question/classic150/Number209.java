@@ -1,12 +1,5 @@
 package com.algori.question.classic150;
 
-import javafx.util.Pair;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 /**
  * @author qiuzhiyi
  * @date 2025/02/11
