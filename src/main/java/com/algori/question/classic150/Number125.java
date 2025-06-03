@@ -6,16 +6,24 @@ package com.algori.question.classic150;
  */
 public class Number125 {
 
+    public static void main(String[] args) {
+        Number125 number125 = new Number125();
+        boolean palindrome = number125.isPalindrome("0P");
+        System.out.println(palindrome);
+    }
+
     public boolean isPalindrome(String s) {
-        int i = 0, j = s.length() - 1;
+
+        StringBuilder sb = new StringBuilder();
+        for(int x = 0; x < s.length(); x++) {
+            if(Character.isLetterOrDigit(s.charAt(x))) {
+                sb.append(s.charAt(x));
+            }
+        }
+        int i = 0, j = sb.length() - 1;
         while(i < j) {
-            while(!(s.charAt(i) >= 'A' && s.charAt(i) <= 'Z') && !(s.charAt(i) >= 'a' && s.charAt(i) <= 'z')) {
-                i++;
-            }
-            while(!(s.charAt(j) >= 'A' && s.charAt(j) <= 'Z') && !(s.charAt(j) >= 'a' && s.charAt(j) <= 'z')) {
-                j++;
-            }
-            if(s.charAt(i) == s.charAt(j) || Math.abs(s.charAt(i) - s.charAt(j)) == Math.abs('a' - 'A')) {
+            if(Character.toLowerCase(sb.charAt(i)) ==
+                Character.toLowerCase(sb.charAt(j))) {
                 i++;
                 j--;
             } else {
