@@ -13,7 +13,9 @@ package com.algori.question.classic150;
 public class QuickSort {
 
     public static void main(String[] args) {
-
+        int[] nums = {3, 4, 7, 1, 5, 3, 3};
+        QuickSort.quickSort(nums, 0, nums.length - 1);
+        System.out.println();
     }
     public static void quickSort(int[] nums, int left, int right) {
         if(left >= right) {
@@ -30,7 +32,7 @@ public class QuickSort {
         swap(nums, pivotIndex, left);
         int i = left;
         for(int j = left + 1; j <= right; j++) {
-            if(nums[j] >= pivot) {
+            if(nums[j] <= pivot) {
                 i++;
                 swap(nums, i, j);
             }
