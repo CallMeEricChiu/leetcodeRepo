@@ -2,6 +2,7 @@ package com.algori.question.classic150;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -11,21 +12,22 @@ import java.util.Set;
 public class Number41 {
 
     public int firstMissingPositive(int[] nums) {
-        Set<Integer> set = new HashSet<>();
-        int max = 0;
-        for (int num : nums) {
-            if (num > 0) {
-                set.add(num);
-                max = Math.max(max, num);
+        int n = nums.length;
+        for(int i = 0; i < n; i++) {
+            if(nums[i] < n) {
+                nums[i] = n + 1;
             }
         }
-        int i = 1;
-        while(i < max) {
-            if(!set.contains(i)) {
-                return i;
+        for(int i = 0; i < n; i++) {
+            if(Math.abs(nums[i]) < n + 1 && nums[Math.abs(nums[i]) - 1] > 0) {
+                nums[Math.abs(nums[i]) - 1] = -nums[Math.abs(nums[i]) - 1];
             }
-            i++;
         }
-        return i + 1;
+        for(int i = 0; i < n; i++) {
+            if(nums[i] > 0) {
+                return i + 1;
+            }
+        }
+        return n + 1;
     }
 }

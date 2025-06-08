@@ -22,9 +22,9 @@ public class Number394 {
             if(Character.isDigit(c)) {
                 multi = multi * 10 + c - '0';
             } else if(c == '[') {
-                subBuilder.setLength(0);
                 multiStack.push(multi);
                 resStack.push(subBuilder.toString());
+                subBuilder.setLength(0);
                 multi = 0;
             } else if(c == ']') {
                 StringBuilder tmp = new StringBuilder();
